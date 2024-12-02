@@ -1,21 +1,22 @@
-//
-//  ContentView.swift
-//  RecipeKeep
-//
-//  Created by Vanessa Roque on 11/23/24.
-//
-
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    @State private var showRecipes: Bool = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                NavigationLink(destination: ShowRecipesView()) {
+                    Text("View Recipes").font(.title)
+                }
+                Image(systemName: "heart")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                    .font(.system(size:50))
+                    .padding(5)
+            } .navigationTitle("Recipe Keeper")
+            
         }
-        .padding()
     }
 }
 
